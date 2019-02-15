@@ -3,6 +3,8 @@ package com.example.visen.studyapp.complex.refresh;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import com.example.visen.studyapp.R;
 import com.example.visen.studyapp.base.BaseActivity;
 import com.scwang.smartrefresh.header.DeliveryHeader;
@@ -18,6 +20,8 @@ import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+
+import java.util.ArrayList;
 
 /**
  * 采用第三方框架实现 SmartRefreshLayout
@@ -47,12 +51,29 @@ public class RefreshActivity extends BaseActivity {
         });
     }
 
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refresh);
 
         setActionBarTitle("刷新和加载");
+
+        //获取listView
+        listView = findViewById(R.id.refresh_listView);
+
+        //创建数组
+        ArrayList<String> list = new ArrayList<>();
+        for(int i=0; i<20; i++) {
+            list.add("第 "+ i +" 行");
+        }
+
+        //创建适配器
+        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.item_main, list);
+        //设置适配器
+        listView.setAdapter(adapter);
+
 
         /** 获取RefreshLayout*/
         RefreshLayout refreshLayout = findViewById(R.id.refreshLayout);

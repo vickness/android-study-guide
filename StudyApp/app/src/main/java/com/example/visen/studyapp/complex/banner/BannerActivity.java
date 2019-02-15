@@ -49,7 +49,7 @@ public class BannerActivity extends BaseActivity {
         //设置轮播的动画效果
         banner.setBannerAnimation(Transformer.ZoomOutSlide);
         //设置轮播间隔时间
-        banner.setDelayTime(3000);
+        banner.setDelayTime(1000);
         //设置自动轮播，默认为true
         banner.isAutoPlay(true);
         //设置指示器的位置，小点点，居中显示

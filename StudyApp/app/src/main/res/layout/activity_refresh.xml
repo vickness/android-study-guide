@@ -11,6 +11,6 @@
     <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/base_listView"/>
+            android:id="@+id/refresh_listView"/>
 
 </com.scwang.smartrefresh.layout.SmartRefreshLayout>
