@@ -3,6 +3,7 @@ package com.example.visen.studyapp.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,6 +89,9 @@ public class StorageActivity extends BaseActivity implements View.OnClickListene
 
         //清空所有数据
         editor.clear();
+
+        //初始化PreferenceUtils
+        PreferenceUtils.getInstance(this);
     }
 
     @Override
@@ -95,22 +99,39 @@ public class StorageActivity extends BaseActivity implements View.OnClickListene
 
         switch (v.getId()) {
             case R.id.loc_add:
-                Toast.makeText(this, "本地添加成功", Toast.LENGTH_SHORT).show();
+                PreferenceUtils.put("UserName", "abc");
+                PreferenceUtils.put("PassWord", "111");
+                PreferenceUtils.put("isLogin", true);
+                PreferenceUtils.put("price", 10.55f);
+                PreferenceUtils.put("number", 111);
                 break;
             case R.id.loc_delete:
-                Toast.makeText(this, "本地删除成功", Toast.LENGTH_SHORT).show();
+                PreferenceUtils.remove("UserName");
+                PreferenceUtils.remove("PassWord");
+                PreferenceUtils.remove("isLogin");
+                PreferenceUtils.remove("price");
+                PreferenceUtils.remove("number");
                 break;
             case R.id.loc_check:
-                Toast.makeText(this, "本地查询成功", Toast.LENGTH_SHORT).show();
+                String userName = PreferenceUtils.get("UserName", "");
+                String passWord = PreferenceUtils.get("PassWord", "");
+                Boolean isLogin = PreferenceUtils.get("isLogin", false);
+                Float price = PreferenceUtils.get("price", 0.01f);
+                Integer number = PreferenceUtils.get("number", 0);
+                Log.d("aa", userName);
+                Log.d("aa", passWord);
+                Log.d("aa", ""+isLogin);
+                Log.d("aa", ""+price);
+                Log.d("aa", ""+number);
                 break;
             case R.id.sql_add:
-                Toast.makeText(this, "数据库添加成功", Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.sql_delete:
-                Toast.makeText(this, "数据库删除成功", Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.sql_check:
-                Toast.makeText(this, "数据库查询成功", Toast.LENGTH_SHORT).show();
+
                 break;
         }
 
