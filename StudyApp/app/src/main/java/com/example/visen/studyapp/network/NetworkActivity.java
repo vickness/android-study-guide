@@ -5,8 +5,9 @@ import android.util.Log;
 import android.view.View;
 import com.example.visen.studyapp.R;
 import com.example.visen.studyapp.base.BaseActivity;
+
+import java.io.IOException;
 import java.util.HashMap;
-import com.example.visen.studyapp.network.NetworkResponse;
 
 public class NetworkActivity extends BaseActivity implements View.OnClickListener {
 
@@ -75,7 +76,11 @@ public class NetworkActivity extends BaseActivity implements View.OnClickListene
             @Override
             public void completeBlock(NetworkResponse response) {
 
-                Log.d("aa", response.toString());
+                try {
+                    Log.d("aa", response.getData().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -90,6 +95,26 @@ public class NetworkActivity extends BaseActivity implements View.OnClickListene
     /** 异步POST请求*/
     private void async_post() {
 
+        HashMap<String, String> params = new HashMap<>();
+        params.put("type", "1");
+        params.put("page", "1");
+
+        new NetworkUtils()
+                .setHost("https://www.apiopen.top/")
+                .setUrl("satinApi")
+                .setParams(params)
+                .setBodyType(NetworkUtils.EnumBodyType.URLTYPE)
+                .post(new NetworkUtils.NetworkCallBack() {
+                    @Override
+                    public void completeBlock(NetworkResponse response) {
+
+                        try {
+                            Log.d("aa", response.getData().string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
     }
 
 

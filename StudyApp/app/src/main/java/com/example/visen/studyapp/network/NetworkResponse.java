@@ -1,12 +1,14 @@
 package com.example.visen.studyapp.network;
 
+import okhttp3.ResponseBody;
+
 public class NetworkResponse {
 
     /** 请求状态*/
     private Boolean state;
 
     /** 请求内容*/
-    private Object data;
+    private ResponseBody data;
 
     /** 提示信息*/
     private String message;
@@ -23,11 +25,11 @@ public class NetworkResponse {
         this.state = state;
     }
 
-    public Object getData() {
+    public ResponseBody getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(ResponseBody data) {
         this.data = data;
     }
 
