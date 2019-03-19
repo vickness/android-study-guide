@@ -12,6 +12,7 @@ import com.example.visen.studyapp.complex.banner.BannerActivity;
 import com.example.visen.studyapp.complex.list.ListViewActivity;
 import com.example.visen.studyapp.complex.recycler.RecyclerViewActivity;
 import com.example.visen.studyapp.complex.refresh.RefreshActivity;
+import com.example.visen.studyapp.complex.viewpager.ViewPagerActivity;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,7 @@ public class ComplexActivity extends BaseActivity {
         list.add("RecyclerView");
         list.add("SmartRefreshLayout");
         list.add("Banner");
+        list.add("ViewPager");
 
         ListView listView = findViewById(R.id.complex_list);
 
@@ -60,6 +62,9 @@ public class ComplexActivity extends BaseActivity {
                         break;
                     case 3:
                         intent.setClass(ComplexActivity.this, BannerActivity.class);
+                        break;
+                    case 4:
+                        intent.setClass(ComplexActivity.this, ViewPagerActivity.class);
                         break;
                 }
 
