@@ -9,6 +9,7 @@ import android.widget.ListView;
 import com.example.visen.studyapp.R;
 import com.example.visen.studyapp.base.BaseActivity;
 import com.example.visen.studyapp.complex.banner.BannerActivity;
+import com.example.visen.studyapp.complex.collapsing.CollapsingActivity;
 import com.example.visen.studyapp.complex.list.ListViewActivity;
 import com.example.visen.studyapp.complex.recycler.RecyclerViewActivity;
 import com.example.visen.studyapp.complex.refresh.RefreshActivity;
@@ -33,6 +34,7 @@ public class ComplexActivity extends BaseActivity {
         list.add("SmartRefreshLayout");
         list.add("Banner");
         list.add("ViewPager");
+        list.add("CollapsingToolbarLayout");
 
         ListView listView = findViewById(R.id.complex_list);
 
@@ -65,6 +67,9 @@ public class ComplexActivity extends BaseActivity {
                         break;
                     case 4:
                         intent.setClass(ComplexActivity.this, ViewPagerActivity.class);
+                        break;
+                    case 5:
+                        intent.setClass(ComplexActivity.this, CollapsingActivity.class);
                         break;
                 }
 

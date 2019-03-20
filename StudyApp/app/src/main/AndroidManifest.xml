@@ -52,6 +52,8 @@
         </activity>
         <activity android:name=".complex.viewpager.ViewPagerActivity">
         </activity>
+        <activity android:name=".complex.collapsing.CollapsingActivity">
+        </activity>
     </application>
 
 </manifest>
